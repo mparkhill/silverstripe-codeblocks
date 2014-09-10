@@ -1,5 +1,5 @@
 {
-	"name": "silverstripe-scienceninjas/silvestripe-codeblocks",
+	"name": "silverstripe-scienceninjas/silverstripe-codeblocks",
 	"description": "Code blocks tinymce plugin for SilverStripe",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "tinymce", "wysiwyg"],

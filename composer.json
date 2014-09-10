@@ -1,0 +1,16 @@
+{
+	"name": "silverstripe-scienceninjas/silvestripe-codeblocks",
+	"description": "Code blocks tinymce plugin for SilverStripe",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe", "tinymce", "wysiwyg"],
+	"authors": [
+		{
+			"name": "SilverStripe Science Ninjas"
+		}
+	],
+	"require": {
+		"silverstripe/framework": "3.1.*",
+		"silverstripe/cms": "3.1.*"
+	},
+	"minimum-stability": "dev"
+}

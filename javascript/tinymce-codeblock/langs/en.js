@@ -1,0 +1,1 @@
+tinyMCE.addI18n('en.sscodeblock',{title:'Insert Code Block',label:'Code Blocks'});

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{#sscodeblock.title}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script language="javascript" type="text/javascript" src="../../../framework/thirdparty/tinymce/tiny_mce_popup.js"></script>
+		<script language="javascript" type="text/javascript" src="../../../framework/thirdparty/tinymce/utils/form_utils.js"></script>
+		<script language="javascript" type="text/javascript" src="../../../framework/thirdparty/jquery/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript">
+			// Calculate the base URL for use onm test, deb and live env's
+			function getAbsURL() {
+				var host = window.location.hostname;
+				if(host.match(/test\./)) {
+					return host+'/nzx-agri';
+				}
+				return host;
+			}
+			function init() {
+				tinyMCEPopup.resizeToInnerSize();
+			}
+			jQuery(document).ready(function(){
+				// load the select list options from CodeBlockController via code-blocks/_config/routes.yml
+				jQuery.ajax({
+					url: "../../../api/codeblocks/getJson",
+     				data: {},
+     				success: function(apiResponseJson) {
+     					var options = '';
+						jQuery.each(apiResponseJson, function(id, name) {
+							options += '<option value="' + id + '">' + name + '</option>';
+						});
+						jQuery("select#codeBlockId").html(options);
+     				},
+					error: function( xhr, status ) {
+						alert("Sorry, no active 'Code Blocks' could be found!");
+					}
+     			});
+				jQuery('#insert').live('click', function(e){
+					var baseHref = '//'+getAbsURL()+'/';
+					var codeBlockId = jQuery('#codeBlockId option:selected');
+					var output = '<img class="ss-codeblock" data-id="' + codeBlockId.val() + '" alt="Code Block placeholder" title="Code Block: '+ codeBlockId.text() + '" src="'+baseHref+'/code-blocks/images/codeblock-150.png">';
+					if (window.tinyMCE) {
+						tinyMCEPopup.editor.execCommand('mceInsertContent', false, output);
+						tinyMCEPopup.editor.execCommand('mceRepaint');
+						tinyMCEPopup.close();
+					}
+					return;
+				});
+			});
+		</script>
+		<style>
+			#sscodeblock div {padding: 0 15px;}
+			#sscodeblock h3 {margin: 0 0 15px 0;}
+			#sscodeblock select {width: 98%;display: block;margin: 0 0 15px 0;}
+		</style>
+		<base target="_self" />
+	</head>
+	<body id="sscodeblock" onload="tinyMCEPopup.executeOnLoad('init();');document.body.style.display='';" style="display: none">
+		<form name="sscodeblock-form" action="#">
+			<div>
+				<h3>{#sscodeblock.title}</h3>
+				<select id="codeBlockId" name="codeBlockId" class="mceFocus"></select>
+				<input type="submit" id="insert" name="insert" value="{#insert}"/>
+				<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+			</div>
+		</form>
+	</body>
+</html>

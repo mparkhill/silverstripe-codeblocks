@@ -36,7 +36,7 @@ Add the following to your /mysite/config.php
 
 	// Register the 'CodeBlocks' plugin with tinymce
 	HtmlEditorConfig::get('cms')->enablePlugins(array(
-		'ss-codeblocks' => '../../../../code-blocks/javascript/tinymce-codeblocks/editor_plugin.js'
+		'ss-codeblocks' => '../../../../code-blocks/javascript/tinymce-codeblock/editor_plugin.js'
 	));
 
 	// Place the 'Insert CodeBlock' button into tinymce's toolbar, next to the anchor button

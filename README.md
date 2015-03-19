@@ -31,7 +31,17 @@ The ajax requested url is mapped to CodeBlockController via a custom route, see:
 
 ## Installation
 
-Add the following to your /mysite/config.php 
+- Add the module via composer to your site root:
+```
+composer require mparkhill/silverstripe-codeblocks
+```
+
+- run dev/build to update your database
+```
+./framework/sake dev/build flush=all
+```
+
+- Register the extension and configure tinymce's menu bar, add the following to your /mysite/config.php 
 ```php
 // Register the 'CodeBlocks' plugin with tinymce
 HtmlEditorConfig::get('cms')->enablePlugins(array(
@@ -44,3 +54,5 @@ HtmlEditorConfig::get('cms')->insertButtonsAfter('anchor', 'ss-codeblocks');
 // Register a shortcode parser to render the shortcodes inserted by the ss-codeblock plugin
 ShortcodeParser::get('default')->register('codeblock', array('CodeBlock', 'codeblock_shortcode_handler'));
 ```
+
+Now you can create codeblocks in the cms, via the 'Code blocks' model admin area, then edit a page's content area and click on the 'code blocks' tinymce toolbar icon to select a 'code block' and add it the page. This inserts a shortcode item for the codeblock which is replaced with the content from the codeblock when the page is rendered.

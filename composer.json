@@ -1,11 +1,12 @@
 {
 	"name": "silverstripe-scienceninjas/silverstripe-codeblocks",
-	"description": "Code blocks tinymce plugin for SilverStripe",
+	"description": "Code blocks tinymce plugin for SilverStripe 3",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "tinymce", "wysiwyg"],
 	"authors": [
 		{
-			"name": "SilverStripe Science Ninjas"
+			"name": "Michael Parkhill",
+			"role": "developer"
 		}
 	],
 	"require": {

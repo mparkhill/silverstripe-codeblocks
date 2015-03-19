@@ -1,8 +1,8 @@
 {
-	"name": "silverstripe-scienceninjas/silverstripe-codeblocks",
-	"description": "Code blocks tinymce plugin for SilverStripe 3",
+	"name": "mparkhill/silverstripe-codeblocks",
+	"description": "SilverStripe 3 tinymce plugin to add shortcode parsed code blocks into content areas",
 	"type": "silverstripe-module",
-	"keywords": ["silverstripe", "tinymce", "wysiwyg"],
+	"keywords": ["silverstripe", "tinymce", "wysiwyg", "codeblock"],
 	"authors": [
 		{
 			"name": "Michael Parkhill",

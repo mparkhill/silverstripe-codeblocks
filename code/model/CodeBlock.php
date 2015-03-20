@@ -17,7 +17,7 @@ class CodeBlock extends DataObject {
 	/**
 	 * @var array
 	 */
-	public static $db = array(
+	private static $db = array(
 		'Name' => 'varchar',
 		'Content' => 'Text',
 		'Status' => "Enum('Active, Archive', 'Active')",
@@ -26,7 +26,7 @@ class CodeBlock extends DataObject {
 	/**
 	 * @var array
 	 */	
-	public static $summary_fields = array(
+	private static $summary_fields = array(
 		"Name",
 		"Status"
 	);

@@ -15,6 +15,6 @@
 	},
 	"minimum-stability": "dev",
     	"extra": {
-        	"installer-name": "codeblocks"
+        	"installer-name": "code-blocks"
     	}
 }

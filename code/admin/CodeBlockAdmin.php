@@ -9,22 +9,22 @@ class CodeBlockAdmin extends ModelAdmin {
 	/**
 	 * @var string
 	 */	
-	public static $url_segment = 'code-blocks';
+	private static $url_segment = 'code-blocks';
 
 	/**
 	 * @var string
 	 */	
-	public static $menu_title = 'Code Blocks';
+	private static $menu_title = 'Code Blocks';
 
 	/**
 	 * @var string
 	 */	
-	public static $menu_icon = "code-blocks/images/codeblock-16-bw.png";
+	private static $menu_icon = "code-blocks/images/codeblock-16-bw.png";
 
 	/**
 	 * @var array
 	 */	
-	static $managed_models = array(
+	private $managed_models = array(
 		'CodeBlock',
 	);
 }

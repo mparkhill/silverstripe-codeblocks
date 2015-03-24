@@ -24,7 +24,7 @@ class CodeBlockAdmin extends ModelAdmin {
 	/**
 	 * @var array
 	 */	
-	private $managed_models = array(
-		'CodeBlock',
+	private static $managed_models = array(
+		'CodeBlock'
 	);
 }

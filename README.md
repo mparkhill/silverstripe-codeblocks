@@ -43,15 +43,15 @@ composer require mparkhill/silverstripe-codeblocks
 
 - Register the extension and configure tinymce's menu bar, add the following to your /mysite/config.php 
 ```php
-// Register the 'CodeBlocks' plugin with tinymce
-HtmlEditorConfig::get('cms')->enablePlugins(array(
-	'ss-codeblocks' => '../../../../code-blocks/javascript/tinymce-codeblocks/editor_plugin.js'
+// Register the tinymce plugin
+$cmsEditor->enablePlugins(array(
+    'ss_insert_codeblock' => '../../../code-blocks/javascript/tinymce-codeblock/editor_plugin.js'
 ));
 
-// Place the 'Insert CodeBlock' button into tinymce's toolbar, next to the anchor button
-HtmlEditorConfig::get('cms')->insertButtonsAfter('anchor', 'ss-codeblocks');
+// Add the 'Insert Codeblock' button into tinymce's toolbar on line 2
+HtmlEditorConfig::get('cms')->addButtonsToLine(2, 'ss_insert_codeblock');
 
-// Register a shortcode parser to render the shortcodes inserted by the ss-codeblock plugin
+// Register a shortcode parser to render the codeblock shortcodes
 ShortcodeParser::get('default')->register('codeblock', array('CodeBlock', 'codeblock_shortcode_handler'));
 ```
 

@@ -1,8 +1,10 @@
 (function() {
+
 	var availableLangs = ['en'];
 	if(jQuery.inArray(tinymce.settings.language, availableLangs) != -1) {
-		tinymce.PluginManager.requireLangPack("sscodeblock");
+		tinymce.PluginManager.requireLangPack("ss_insert_codeblock");
 	}
+
 	var each = tinymce.each;
 	tinymce.create('tinymce.plugins.InsertCodeBlock', {
 		getInfo : function() {
@@ -26,7 +28,7 @@
 				});
 			});
 
-			ed.addButton('sscodeblock', {
+			ed.addButton('ss_insert_codeblock', {
 				title : 'Insert Code Block',
 				cmd : 'mceInsertCodeBlock',
 				image : url + '/../../images/codeblock-16.png'
@@ -92,5 +94,5 @@
 			});
 		}
 	});
-	tinymce.PluginManager.add("sscodeblock", tinymce.plugins.InsertCodeBlock);
+	tinymce.PluginManager.add("ss_insert_codeblock", tinymce.plugins.InsertCodeBlock);
 })();

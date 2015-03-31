@@ -11,14 +11,14 @@ class CodeBlockController extends Controller {
 	 * @var array $allowed_actions whitelisting of public methods available in this Controller 
 	 */
 	private static $allowed_actions = array(
-		'getJson'
+		'json'
 	);
 
 	/**
 	 * Initialises the controller and ensures that only
 	 * ADMIN level users can access this controller
 	 */
-	private function init() {
+	public function init() {
 		parent::init();
 		if (!Permission::check('ADMIN')) {
 			return $this->httpError(403);
@@ -33,7 +33,7 @@ class CodeBlockController extends Controller {
 	 * @return SS_HTTPResonse A http response containing a json encoded array
  	 * @see: code-blocks/_config/routes.yml
 	 */
-	private function getJson(SS_HTTPRequest $request) {
+	public function json(SS_HTTPRequest $request) {
 		$this->response->addHeader('Content-Type', 'application/json');
 		if ($list = CodeBlock::get()->filter(array('Status' => 'Active'))->map('ID', 'Name')) {
 			$this->response->setBody(json_encode($list->toArray()));

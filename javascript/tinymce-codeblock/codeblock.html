@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{#sscodeblock.title}</title>
+		<title>{#ss_insert_codeblock.title}</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<script language="javascript" type="text/javascript" src="../../../framework/thirdparty/tinymce/tiny_mce_popup.js"></script>
 		<script language="javascript" type="text/javascript" src="../../../framework/thirdparty/tinymce/utils/form_utils.js"></script>
@@ -21,7 +21,7 @@
 			jQuery(document).ready(function(){
 				// load the select list options from CodeBlockController via code-blocks/_config/routes.yml
 				jQuery.ajax({
-					url: "../../../api/codeblocks/getJson",
+					url: "../../../codeblock/json",
      				data: {},
      				success: function(apiResponseJson) {
      					var options = '';
@@ -57,7 +57,7 @@
 	<body id="sscodeblock" onload="tinyMCEPopup.executeOnLoad('init();');document.body.style.display='';" style="display: none">
 		<form name="sscodeblock-form" action="#">
 			<div>
-				<h3>{#sscodeblock.title}</h3>
+				<h3>{#ss_insert_codeblock.title}</h3>
 				<select id="codeBlockId" name="codeBlockId" class="mceFocus"></select>
 				<input type="submit" id="insert" name="insert" value="{#insert}"/>
 				<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
